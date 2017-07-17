@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "//UNKNOWN/"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.PendingDocDao">
+	<insert id="newPendingDoc" parameterType="com.entity.PendingDoc">
+		insert into pendingdoc
+		(pendingdocid,accountid,docid,state,finishtime) values
+		(null,#{accountid},#{docid},0,null)
+	</insert>
+	<!-- 查询当前用户的待办公文 -->
+	<select id="getDocByAccount" parameterType="int" resultType="map">
+		select pendingdoc.docid DOCID,DOCNAME,CHECKTIME,STOPTIME from
+		pendingdoc join checkdoc on pendingdoc.docid = checkdoc.docid join
+		account on account.accountid = checkdoc.accountid where
+		pendingdoc.accountid = #{id} and
+		pendingdoc.state = 0 order by stoptime
+		desc
+	</select>
+  <!--根据AccountID和DocId查询被考核人-->
+	<select id="getBkhrByAccountidAndDocid" resultType="map">
+        select checkedaccount.*,REALNAME from checkedaccount join account on
+		checkedaccount.CHECKEDACCOUNTID = account.ACCOUNTID where docid =
+		#{docid} and checkedaccount.ACCOUNTID = #{accountid} order by
+		CHECKEDACCOUNTID
+</select>
+
+	<!--修改state字段为1，根据docid和accountid来标识该用户-->
+	<update id="changStateTo1" parameterType="com.entity.PendingDoc">
+			update pendingdoc set
+		state=1,finishtime=now() where docid=#{docid} and
+		accountid=#{accountid}
+	</update>
+</mapper> 

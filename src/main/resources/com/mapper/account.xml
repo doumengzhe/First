@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "//UNKNOWN/"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.AccountDao">
+	<!-- 登录 -->
+	<select id="login" parameterType="com.entity.account" resultMap="accountMap">
+		select account.ACCOUNTID,account.REALNAME,tb_right.url rights
+		from account
+		join ta_account_role on account.ACCOUNTID=ta_account_role.ACCOUNTID
+		join ta_role_right on ta_account_role.roleid=ta_role_right.roleid
+		join tb_right on ta_role_right.rightid=tb_right.rightid
+		where accountname=#{accountname} and password = #{password}
+	</select>
+	<!--根据根据deptno获取部门的二级经理-->
+	<select id="getSecondMangerListByDeptno"  parameterType="string" resultType="com.entity.account">
+		select * from account where dutyid in(select dutyid from duty where
+		dutylevel = 2) and deptno = #{deptno}
+	</select>
+	<resultMap type="com.entity.account" id="accountMap">
+		<id column="ACCOUNTID" property="accountid"/>
+		<result column="REALNAME" property="realname"/>
+		<collection property="rights" ofType="string">
+			<result column="rights"/>
+		</collection>
+	</resultMap>
+<!--根据被考核人id获取考核人ids-->
+<select id="getAccountIdByCheckedAccountId" parameterType="int" resultType="integer">
+	select accountid from account where (dutyid in(select
+		dutyid from duty where dutylevel in(1,2) and accountid != #{id})) or
+		(acc_accountid = #{id})
+</select>
+         <!--根据accountid获取account-->
+	<select id="getAccountByAccountId" parameterType="integer" resultType="com.entity.account">
+		select * from account where accountid=#{accountId}
+	</select>
+</mapper>

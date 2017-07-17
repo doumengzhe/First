@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "//UNKNOWN/"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.DeptDao">
+  <!--获得所有的二级经理的部门-->
+	<select id="getSecondMangerDept" resultType="com.entity.Dept">
+		select * from dept where length(deptno) = 4 order by deptno
+	</select>
+</mapper>

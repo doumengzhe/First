@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "//UNKNOWN/"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.CheckAccountDao">
+	<!--向CheckedAccount表中插入Accountid，CheckedAccountid以及Docid,State-->
+     <insert id="newCheckedAccount" parameterType="com.entity.CheckedAccount">
+		 insert into checkedaccount
+		(checkedid,accountid,docid,checkedaccountid,state)
+		values
+		(null,#{accountid},#{docid},#{checkedaccountid},0)
+	 </insert>
+	<!--根据docid返回考核人id-->
+	<select id="getAccountidsByDocid" parameterType="int" resultType="integer">
+		select distinct accountid from checkedaccount where docid = #{docid}
+   </select>
+
+	<!--插入各项能力的值-->
+	<update id="updateCheckedAccountWithAbility" parameterType="com.entity.CheckedAccount">
+		update checkedaccount set
+		sxszvalue=#{sxszvalue},ljzlvalue=#{ljzlvalue},gzzfvalue=#{gzzfvalue},jcnlvalue=#{jcnlvalue},zzxtnlvalue=#{zzxtnlvalue},cxnlvalue=#{cxnlvalue},ldnlvalue=#{ldnlvalue},zrxvalue=#{zrxvalue},fwysvalue=#{fwysvalue},mbdcvalue=#{mbdcvalue},glxlvalue=#{glxlvalue},xskfvalue=#{xskfvalue},state=1
+		where checkedid=#{checkedid}
+	</update>
+</mapper> 

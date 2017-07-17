@@ -1,0 +1,38 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="jixiao:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/jixiao_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="jixiao/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="jixiao" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/jstl.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/asm-3.3.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/standard.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/freemarker.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/gson-2.2.4.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/ognl-3.0.6.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/asm-tree-3.3.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/log4j-1.2.17.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/mybatis-3.2.1.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/commons-io-2.2.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/asm-commons-3.3.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/commons-dbcp-1.2.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/commons-pool-1.3.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/commons-lang3-3.1.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/freemarker-2.3.19.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/poi-3.12-20150511.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/javassist-3.11.0.GA.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/xwork-core-2.3.16.1.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/commons-logging-1.1.3.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/struts2-core-2.3.16.1.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/commons-collections-3.2.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/commons-fileupload-1.3.1.jar" />
+          <element id="file-copy" path="F:/jixiao/WebContent/WEB-INF/lib/mysql-connector-java-5.0.0-beta-bin.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

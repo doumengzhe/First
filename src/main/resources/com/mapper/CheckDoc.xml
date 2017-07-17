@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "//UNKNOWN/"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.CheckDocDao">
+	 <!--向checkdoc表插入数据并返回这次的checkdocid-->
+	<insert id="addCheckDoc" parameterType="com.entity.CheckDoc"
+			useGeneratedKeys="true" keyProperty="docid">
+		insert into checkdoc
+		(docid,accountid,docname,createtime,descript,checktime,stoptime)
+		values
+		(null,#{accountid},#{docname},now(),#{descript},#{checktime},#{stoptime})
+	</insert>
+	<!-- 查询所有考核公文和起草人的Realname -->
+	<select id="getCheckDocAndRealname" resultType="map">
+		select checkdoc.*,REALNAME from
+		checkdoc join account on checkdoc.accountid=account.accountid
+	</select>
+
+
+</mapper> 
